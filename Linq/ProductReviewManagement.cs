@@ -163,13 +163,6 @@ namespace Product_Review_Management
             return productsReviewList.FindAll(product => product.Review.Equals("nice", StringComparison.OrdinalIgnoreCase));
         }
 
-        /// <summary>
-        /// UC 12: Retrieves all product reviews by user identifier and order by rating.
-        /// </summary>
-       
-        public List<ProductReview> RetrieveAllProductReviews_ByUserIDAndOrderByRating(List<ProductReview> productsReviewList, int userID)
-        {
-            return productsReviewList.FindAll(product => product.UserID.Equals(userID)).OrderBy(product => product.Rating).ToList();
-        }
+      
     }
 }
