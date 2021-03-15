@@ -126,26 +126,7 @@ namespace Product_Review_Management
 
             return ProductReviewDataTable;
         }
-        /// <summary>
-        ///UC9: Retrieves the record with likes.
-        /// </summary>
         
-        public DataTable RetrievedetailsWithLikes(DataTable productReviewDataTable)
-        {
-            DataTable dataTable = new DataTable();
-            dataTable = productReviewDataTable.AsEnumerable().Where(product => product.Field<bool>("IsLike").Equals(true)).CopyToDataTable();
-            return dataTable;
-        }
-        public void DisplayDataTable(DataTable dataTable)
-        {
-            foreach (DataRow row in dataTable.Rows)
-            {
-                foreach (DataColumn column in dataTable.Columns)
-                {
-                    Console.WriteLine(row[column]);
-                }
-            }
-        }
        
     }
 }

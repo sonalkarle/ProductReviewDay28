@@ -171,15 +171,7 @@ namespace NUnitTestProject
             DataTable productsReviewDataTable = productReviewManagement.CreateDataTableOfProductReview(ProductsReviewList);
             Assert.AreEqual(ProductReviewDataTable.Columns[0].ColumnName, productsReviewDataTable.Columns[0].ColumnName);
         }
-        /// <summary>
-        ///TC-9 Givens the product reviews table when retrieve record having is like true should return expeted.
-        /// </summary>
-        [Test]
-        public void GivenProductReviewsTable_WhenRetrieveRecordHavingIsLikeTrue_ShouldReturnExpeted()
-        {
-            DataTable dataTable = productReviewManagement.RetrievedetailsWithLikes(ProductReviewDataTable);
-            Assert.AreEqual(ProductReviewDataTable.Rows[0][1], dataTable.Rows[0][1]);
-        }
+        
         
     }
 }
