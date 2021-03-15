@@ -154,22 +154,6 @@ namespace Product_Review_Management
         {
             return productsReviewList.GroupBy(product => product.ProductID).ToDictionary(p => p.Key, p => p.Average(p => p.Rating));
         }
-        /// <summary>
-        ///  UC11: Retrieves all product reviews having review nice.
-        /// </summary>
-        
-        public List<ProductReview> RetrieveAllProductReviewsHavingReviewNice(List<ProductReview> productsReviewList)
-        {
-            return productsReviewList.FindAll(product => product.Review.Equals("nice", StringComparison.OrdinalIgnoreCase));
-        }
-
-        /// <summary>
-        /// UC 12: Retrieves all product reviews by user identifier and order by rating.
-        /// </summary>
-       
-        public List<ProductReview> RetrieveAllProductReviews_ByUserIDAndOrderByRating(List<ProductReview> productsReviewList, int userID)
-        {
-            return productsReviewList.FindAll(product => product.UserID.Equals(userID)).OrderBy(product => product.Rating).ToList();
-        }
+      
     }
 }
