@@ -180,42 +180,6 @@ namespace NUnitTestProject
             DataTable dataTable = productReviewManagement.RetrievedetailsWithLikes(ProductReviewDataTable);
             Assert.AreEqual(ProductReviewDataTable.Rows[0][1], dataTable.Rows[0][1]);
         }
-        /// <summary>
-        ///TC-10 Givens the product reviews list when retrieve average rating for each product should return expeted.
-        /// </summary>
-        [Test]
-        public void GivenProductReviewsList_WhenRetrieveAverageRatingForEachProduct_ShouldReturnExpeted()
-        {
-            Dictionary<int, double> ProductAvgRating = productReviewManagement.RetrieveAverageRatingOfProduct(ProductsReviewList);
-            Assert.AreEqual(3, ProductAvgRating[20]);
-        }
-        /// <summary>
-        ///  TC-11 Givens the product reviews list when retrieve all records with review nice should return expeted.
-        /// </summary>
-        [Test]
-        public void GivenProductReviewsList_WhenRetrieveAllRecordsReviewNice_ShouldReturnExpeted()
-        {
-            List<ProductReview> ProductReviews = productReviewManagement.RetrieveAllProductReviewsHavingReviewNice(ProductsReviewList);
-            Assert.AreEqual(ProductsReviewList[10], ProductReviews[0]);
-        }
-        /// <summary>
-        ///  TC 12 Givens the product reviews list when retrieve all records user iD 10 order by rating should return expeted.
-        /// </summary>
-        [Test]
-        public void GivenProductReviewsList_WhenRetrieveAllRecordsUserID10OrderByRating_ShouldReturnExpeted()
-        {
-            ProductReviewDataTable.Rows.Add(3, 10, 1, "bad", false);
-            ProductReviewDataTable.Rows.Add(13, 10, 3, "average", true);
-            ProductReviewDataTable.Rows.Add(5, 10, 5, "good", true);
-            ProductReviewDataTable.Rows.Add(9, 10, 4, "average", true);
-
-            var expected = new List<ProductReview>()
-            {
-                new ProductReview(){ProductID = 19, UserID = 10, Rating = 2, Review = "bad", IsLike = true},
-                new ProductReview(){ProductID = 20, UserID = 10, Rating = 3, Review = "good", IsLike = false}
-            };
-            List<ProductReview> result = productReviewManagement.RetrieveAllProductReviews_ByUserIDAndOrderByRating(ProductsReviewList, 10);
-            Assert.AreEqual(expected, result);
-        }
+        
     }
 }
